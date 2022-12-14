@@ -1,0 +1,17 @@
+with open('day1.txt') as calories:
+    cals = calories.readlines()
+
+max = 0
+count = 0
+
+for i in cals:
+    if i == '\n':
+        count = 0
+    else:
+        nb_cal = int(i)
+        count += nb_cal
+
+    if count > max:
+        max = count
+
+print('max = ', max)
