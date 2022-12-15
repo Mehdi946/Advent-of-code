@@ -1,0 +1,25 @@
+with open('day1.txt') as calories:
+    cals = calories.readlines()
+
+max, m1, m2, m3 = 0, 0, 0, 0
+count = 0
+
+for i in cals:
+    if i == '\n':
+        count = 0
+    else:
+        nb_cal = int(i)
+        count += nb_cal
+
+    if count > m1:
+        m3 = m2
+        m2 = m1
+        m1 = count
+    elif count > m2:
+        m3 = m2
+        m2 = count
+    elif count > m3:
+        m3 = count
+
+max = m1 + m2 + m3
+print('max = ', max)
