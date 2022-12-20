@@ -1,0 +1,35 @@
+import sys
+with open('day1.txt') as calories:
+    cals = calories.readlines()
+
+maxi = 0
+count = 0
+cpt = 0
+list = []
+long = 0
+for i in cals:
+    if i == '\n':
+        count = 0
+    else:
+        nb_cal = int(i)
+        count += nb_cal
+
+    list.append(count)
+    
+long = len(list)
+list.sort();
+
+a = int(sys.argv[1])
+
+for x in range(a):
+    cpt = cpt + 1
+    b = long-cpt
+    maxi += list[b]
+
+
+
+print("Part 1 max calories :", max(list))
+#print(long)
+print("Part 2 :", maxi)
+
+
